@@ -102,23 +102,21 @@ function initContactForm() {
     const submitBtn = contactForm.querySelector('button[type="submit"]');
     const originalBtnText = submitBtn.innerHTML;
     
-    contactForm.addEventListener('submit', async function(e) {
-        e.preventDefault();
+    contactForm.addEventListener('submit', function(e) {
+        // Basic validation
+        const name = this.querySelector('input[name="name"]').value;
+        const email = this.querySelector('input[name="_replyto"]').value;
+        const subject = this.querySelector('input[name="_subject"]').value;
+        const message = this.querySelector('textarea[name="message"]').value;
         
-        // Get form data
-        const formData = new FormData(this);
-        const name = formData.get('name');
-        const email = formData.get('email');
-        const subject = formData.get('subject');
-        const message = formData.get('message');
-        
-        // Simple validation
         if (!name || !email || !subject || !message) {
+            e.preventDefault();
             alert('Please fill in all fields.');
             return;
         }
         
         if (!isValidEmail(email)) {
+            e.preventDefault();
             alert('Please enter a valid email address.');
             return;
         }
@@ -127,14 +125,17 @@ function initContactForm() {
         submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
         submitBtn.disabled = true;
         
-        // Simple success message
-        setTimeout(() => {
-            alert('Thank you! Your message has been received.');
-            this.reset();
-            submitBtn.innerHTML = originalBtnText;
-            submitBtn.disabled = false;
-        }, 1000);
+        // Form will submit normally to Formspree
+        // User will be redirected back to the contact section
     });
+    
+    // Check if user returned from successful form submission
+    if (window.location.hash === '#contact' && document.referrer.includes('formspree.io')) {
+        // Show success message
+        setTimeout(() => {
+            alert('Thank you! Your message has been sent successfully.');
+        }, 500);
+    }
 }
 
 // Utility functions
