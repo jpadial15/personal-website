@@ -1,6 +1,9 @@
 # Ignore academic CV
 jorge-padial-cv-academic.tex
 
+# Large/original images
+FAMILY-11.jpg
+
 # OS files
 .DS_Store
 Thumbs.db

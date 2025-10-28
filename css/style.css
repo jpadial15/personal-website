@@ -20,6 +20,11 @@ body {
 }
 
 /* Custom Properties */
+/* =============================================================================
+   COLOR SCHEMES - Uncomment the one you want to use
+   ============================================================================= */
+
+/* OPTION 1: Scientific Blue (Current) */
 :root {
     --primary-color: #6366f1;
     --text-primary: #1a1a1a;
@@ -32,6 +37,83 @@ body {
     --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
     --gradient-primary: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
 }
+
+/* OPTION 2: Deep Ocean (HPC/Supercomputer theme) */
+/*
+:root {
+    --primary-color: #0891b2;
+    --text-primary: #1a1a1a;
+    --text-secondary: #64748b;
+    --bg-secondary: #f0f9ff;
+    --bg-dark: #0f172a;
+    --border-color: #e2e8f0;
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    --gradient-primary: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+}
+*/
+
+/* OPTION 3: Argonne Green (National Lab inspired) */
+/*
+:root {
+    --primary-color: #059669;
+    --text-primary: #1a1a1a;
+    --text-secondary: #6b7280;
+    --bg-secondary: #f0fdf4;
+    --bg-dark: #14532d;
+    --border-color: #d1fae5;
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    --gradient-primary: linear-gradient(135deg, #059669 0%, #10b981 100%);
+}
+*/
+
+/* OPTION 4: High-Tech Purple (Computing industry) */
+/*
+:root {
+    --primary-color: #7c3aed;
+    --text-primary: #1a1a1a;
+    --text-secondary: #6b7280;
+    --bg-secondary: #faf5ff;
+    --bg-dark: #581c87;
+    --border-color: #e9d5ff;
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    --gradient-primary: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+}
+*/
+
+/* OPTION 5: Dark Scientist (Professional dark theme) */
+/*
+:root {
+    --primary-color: #3b82f6;
+    --text-primary: #f8fafc;
+    --text-secondary: #cbd5e1;
+    --bg-secondary: #1e293b;
+    --bg-dark: #0f172a;
+    --border-color: #334155;
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+    --gradient-primary: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+}
+
+.hero {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
+.about, .contact {
+    background-color: var(--bg-secondary);
+}
+*/
 
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
@@ -61,6 +143,23 @@ p {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+}
+
+.highlight-text {
+    color: var(--primary-color);
+    font-weight: 600;
+    position: relative;
+}
+
+.highlight-text::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--gradient-primary);
+    opacity: 0.3;
 }
 
 /* Buttons */
