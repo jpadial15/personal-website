@@ -1,0 +1,14 @@
+# Ignore academic CV
+jorge-padial-cv-academic.tex
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/settings.json
+*.swp
+*.swo
+
+# Logs
+*.log
