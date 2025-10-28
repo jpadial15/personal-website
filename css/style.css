@@ -704,13 +704,15 @@ section {
 
 .footer-content {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
 }
 
 .footer-links {
     display: flex;
     gap: 2rem;
+    justify-content: center;
 }
 
 .footer-links a {
@@ -721,6 +723,13 @@ section {
 
 .footer-links a:hover {
     color: white;
+}
+
+.footer-keywords {
+    margin-top: 0.5rem;
+    opacity: 0.7;
+    font-size: 0.8rem;
+    line-height: 1.4;
 }
 
 
