@@ -876,27 +876,17 @@ section {
     margin-bottom: 1rem;
 }
 
-.publication-links {
-    display: flex;
-    gap: 1rem;
-}
-
-.pub-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem 1rem;
-    background: var(--primary-color);
-    color: white;
+.doi-link {
+    color: var(--primary-color);
     text-decoration: none;
-    border-radius: 6px;
-    font-size: 0.9rem;
     font-weight: 500;
-    transition: all 0.3s ease;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9em;
+    transition: color 0.3s ease;
 }
 
-.pub-link:hover {
-    background: var(--primary-color);
-    filter: brightness(110%);
-    transform: translateY(-2px);
+.doi-link:hover {
+    color: var(--primary-color);
+    filter: brightness(120%);
+    text-decoration: underline;
 }
