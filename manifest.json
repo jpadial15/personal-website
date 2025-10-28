@@ -1,0 +1,23 @@
+{
+  "name": "Jorge R. Padial Doble - Astrophysicist Portfolio",
+  "short_name": "Jorge Padial",
+  "description": "Ph.D. Astrophysicist specializing in solar physics, high-performance computing, and machine learning. Available for postdoc positions and research collaboration.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#059669",
+  "orientation": "portrait",
+  "categories": ["science", "education", "research", "academic"],
+  "lang": "en",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "profile-image.jpg",
+      "sizes": "400x400",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false
+}
