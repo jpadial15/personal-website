@@ -1,0 +1,587 @@
+%
+% Academic CV - Jorge R. Padial Doble
+% ===================================
+%
+% Formal academic curriculum vitae for graduate degree submission
+%
+
+\documentclass[11pt,a4paper]{article}
+
+% Set the page margins - slightly narrower for better space utilization
+\usepackage[a4paper,margin=0.85in]{geometry}
+
+% Professional font - Palatino
+\usepackage{mathpazo}
+\usepackage[T1]{fontenc}
+\usepackage{microtype} % Improved typography and letter spacing
+\usepackage{xcolor} % For subtle color accents
+
+% Define professional colors
+\definecolor{sectioncolor}{RGB}{20, 40, 80} % Dark navy blue
+\definecolor{subtletext}{RGB}{100, 100, 100} % Gray for subtle text
+
+% Setup the language
+\usepackage[english]{babel}
+\hyphenation{Some-long-word}
+
+% Makes resume-specific commands available
+\usepackage{resume}
+\usepackage{fontawesome}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{hyperref}
+
+% Hyperlink setup - subtle and professional
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    urlcolor=sectioncolor,  % Use section color for links
+    citecolor=black,
+    pdfborder={0 0 0}       % Remove boxes around links
+}
+
+% Section formatting - simple and clean with color accent
+\titleformat{\section}{\color{sectioncolor}\normalfont\Large\bfseries}{}{0em}{}[\textcolor{sectioncolor}{\titlerule}]
+
+% Subsection formatting - visual hierarchy
+\titleformat{\subsection}{\vspace{0.5em}\normalfont\large\itshape}{}{0em}{}
+\titlespacing*{\subsection}{0pt}{1em}{0.3em}
+
+% Spacing - optimized for readability
+\setlength{\parskip}{0.2em}
+\setlength{\parindent}{0em}
+\linespread{1.05} % Slightly tighter line spacing for Palatino
+
+\begin{document}
+
+% Header - Traditional format with enhanced typography
+\begin{center}
+    {\Huge\textbf{JORGE R. PADIAL DOBLE}}\\[0.4cm]
+    {\large\textsc{Department of Physics and Astronomy, Vanderbilt University}}\\
+    {\normalsize Nashville, TN 37235}\\[0.3cm]
+    {\small
+    Email: \href{mailto:jorge.r.padial.doble@vanderbilt.edu}{jorge.r.padial.doble@vanderbilt.edu}\\
+    GitHub: \href{https://github.com/jpadial15}{github.com/jpadial15}
+    }\\[0.2cm]
+    \rule{0.7\textwidth}{0.4pt}
+\end{center}
+
+\spacedhrule{0.5em}{-0.4em}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% EDUCATION SECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\roottitle{Education}
+
+\headedsection
+{\textbf{Vanderbilt University}}
+{\textsc{Nashville, TN}}
+{%
+    \headedsubsection
+    {Ph.D. in Physics (Astrophysics)}
+    {August 2019–December 2025 {\small\textcolor{gray}{(Expected)}}}
+    {\bodytext{
+        \textbf{Dissertation:} Designed and implemented a robust ETL pipeline ran on 100's terabytes of images, solving the 50-year-old problem of precise solar flare localization from first principles.\\[0.1cm]
+        \textbf{Committee Chair:} Kelly Holley-Bockelmann, Ph.D.\\[0.1cm]
+        \textbf{Committee Members:} Jesse Spencer-Smith, Ph.D.; Jon Bird, Ph.D.; Karan Jani, Ph.D.\\[0.1cm]
+    }}
+}
+
+\headedsection
+{\textbf{Fisk University}}
+{\textsc{Nashville, TN}}
+{%
+    \headedsubsection
+    {Master of Science in Physics; Magna Cum Laude}
+    {August 2017–August 2019}
+    {\bodytext{
+        \textbf{Thesis:} A Hard X-Ray look at Supernova Remnant RCW-86
+    }}
+}
+
+\headedsection
+{\textbf{University of Puerto Rico -- Río Piedras}}
+{\textsc{San Juan, PR}}
+{%
+    \headedsubsection
+    {Bachelor of Science in Theoretical and Mathematical Physics; Cum Laude}
+    {August 2013–May 2017}
+    {}
+}
+
+\headedsection
+{\textbf{University of Puerto Rico -- Río Piedras}}
+{\textsc{San Juan, PR}}
+{%
+    \headedsubsection
+    {Bachelor of Science in Molecular Biology}
+    {August 2007–May 2012}
+    {}
+}
+
+\spacedhrule{0.5em}{-0.4em}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% RESEARCH EXPERIENCE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\roottitle{Research Experience}
+
+\headedsection
+{\textbf{Vanderbilt University}}
+{\textsc{Nashville, TN}}
+{%
+    \headedsubsection
+    {Graduate Research Assistant}
+    {May 2020–Present}
+    {\bodytext{
+        \textbf{Project:} When and Where is that Flare? A 10-Year Solar Flare Catalogue\\
+        Developed and optimized a Python-based ETL pipeline to efficiently extract, clean, and process more than 100 TB of data from AIA, SXI, and XRS, producing a comprehensive solar flare catalog with machine learning insights.\\
+        \textbf{Advisor:} Kelly Holley-Bockelmann, Ph.D.
+    }}
+}
+
+\headedsection
+{\textbf{University of Chicago, Department of Computer Science}}
+{\textsc{Chicago, IL}}
+{%
+    \headedsubsection
+    {Visiting Researcher}
+    {May 2021–Present}
+    {\bodytext{
+        Collaborated on large-scale data processing and machine learning applications for solar physics research. Utilized high-performance computing resources at Argonne National Laboratory.
+    }}
+}
+
+\headedsection
+{\textbf{Harvard-Smithsonian Center for Astrophysics}}
+{\textsc{Cambridge, MA}}
+{%
+    \headedsubsection
+    {Graduate Research Assistant}
+    {May 2018–May 2020}
+    {\bodytext{
+        \textbf{Project:} A Hard X-ray look at the South West Region of RCW-86\\
+        Engineered a Python ETL pipeline to integrate and analyze 19 disparate datasets, applying advanced statistical models to uncover insights into non-thermal photon emissions from Supernova Remnants.\\
+        \textbf{Advisor:} Smithsonian Astrophysical Observatory Fellowship Program
+    }}
+}
+
+\headedsection
+{\textbf{Arecibo Legacy Fast ALFA Survey Team}}
+{\textsc{National Astronomy and Ionosphere Center}}
+{%
+    \headedsubsection
+    {Undergraduate Researcher}
+    {January 2014–May 2014}
+    {}
+    
+    \headedsubsection
+    {Project A2899 Observing Team}
+    {November 2014}
+    {\bodytext{
+        Four observing nights at Arecibo Observatory
+    }}
+    
+    \headedsubsection
+    {A WISE view of Almost Dark ALFALFA Galaxies}
+    {June 2014}
+    {\bodytext{
+        Analyzed Dark Galaxy Candidate AGC-229101 with radio observations from the Arecibo Observatory and infrared data from WISE and Spitzer.
+    }}
+    
+    \headedsubsection
+    {Project A2811 Observing Team}
+    {November 2013}
+    {\bodytext{
+        Four observing nights. Used L-Band Wide receivers to search for galaxies of unknown redshift with an optical counterpart galaxies with a $5 < \text{S/N} < 6.5$.
+    }}
+}
+
+\spacedhrule{0.5em}{-0.4em}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PUBLICATIONS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\roottitle{Publications}
+
+\subsection*{Peer-Reviewed Publications}
+
+\begin{enumerate}[leftmargin=2em, itemsep=0.8em, parsep=0pt, label=\textbf{[\arabic*]}]
+    \item \textbf{Padial-Doble, J. R.}, \& Holley-Bockelmann, K. (2025). ALEXIS: Recreating the X-Ray Emission from the Full Solar Disk as a Linear Combination of Discrete Regions in the Extreme Ultraviolet and Soft X-Rays. \textit{The Astrophysical Journal Supplement Series}, 278, 14. \href{https://doi.org/10.3847/1538-4365/adbe35}{doi:10.3847/1538-4365/adbe35}
+\end{enumerate}
+
+\subsection*{Publications in Preparation}
+
+\begin{enumerate}[leftmargin=2em, itemsep=0.8em, parsep=0pt, label=\textbf{[\arabic*]}]
+    \item \textbf{Padial-Doble, J. R.}, et al. ALEXIS: Scaling to 100 TB of AIA images and Millions of CPU hours at National Compute Laboratories. In preparation for submission. Expected December 2025.
+\end{enumerate}
+
+\spacedhrule{0.5em}{-0.4em}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PRESENTATIONS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\roottitle{Presentations and Conference Participation}
+
+\subsection*{Invited Talks}
+
+\headedsection
+{\textbf{American Meteorological Society}}
+{\textsc{New Orleans, LA}}
+{%
+    \headedsubsection
+    {\textit{Invited Talk:} The Automatically Labelled EUV and XRay Incident Solarflare Catalog: Using Big Data and ML Techniques to Pin-Point Solar Flare Locations}
+    {January 12–16, 2025}
+    {}
+}
+
+\headedsection
+{\textbf{Data, Analysis, and Software in Heliophysics (DASH) Conference}}
+{\textsc{Madrid, Spain}}
+{%
+    \headedsubsection
+    {\textit{Invited Talk:} Automatically Labelled EUV and Xray Incident Solarflare (ALEXIS) catalog for Solar Flare Prediction Machine Learning Models}
+    {October 14–18, 2024}
+    {\bodytext{Travel expenses covered by NASA.}}
+}
+
+\headedsection
+{\textbf{University of Michigan Center for All-Clear SEP Forecast}}
+{\textsc{Ann Arbor, MI}}
+{%
+    \headedsubsection
+    {\textit{Invited Talk:} The ALEXIS solar flare catalog: Presented results derived from an automated ETL pipeline designed for large-scale solar data processing}
+    {August 10, 2024}
+    {\bodytext{Travel expenses covered by University of Michigan.}}
+}
+
+\headedsection
+{\textbf{Space Weather Prediction Center Seminar Series}}
+{\textsc{Boulder, CO}}
+{%
+    \headedsubsection
+    {\textit{Invited Talk:} Automatically Labelled EUV and XRay Incident Solarflare (ALEXIS) Catalog}
+    {April 4, 2024}
+    {}
+}
+
+\headedsection
+{\textbf{Institute for Theory and Computation, Harvard-Smithsonian CfA}}
+{\textsc{Boston, MA}}
+{%
+    \headedsubsection
+    {\textit{Invited Talk:} Automatically Labelled EUV and XRay Incident Solarflare Catalog for Machine Learning}
+    {February 2024}
+    {\bodytext{\href{https://www.youtube.com/watch?v=1WUj-C2-xUM&t=1866s}{Video available online}}}
+}
+
+\headedsection
+{\textbf{AstroAI, Harvard-Smithsonian Center for Astrophysics}}
+{\textsc{Boston, MA}}
+{%
+    \headedsubsection
+    {\textit{Invited Talk:} Automatically Labelled EUV and XRay Incident Solarflare Catalog for Machine Learning}
+    {February 2024}
+    {\bodytext{\href{https://www.youtube.com/watch?v=bRWKM0OjYsg&t=1590s}{Video available online}}}
+}
+
+\subsection*{Conference Presentations}
+
+\headedsection
+{\textbf{SHINE Workshop}}
+{\textsc{Juneau, AK}}
+{%
+    \headedsubsection
+    {Poster: Automatically Labelled EUV and XRay Incident Solarflares (ALEXIS Solar Flare Catalog)}
+    {August 12–18, 2024}
+    {\bodytext{Travel expenses covered by SHINE. \href{https://drive.google.com/file/d/1I8xyoxGDcT0vmq0uRx8S_tFhbHBFnY8t/view}{Poster available online}}}
+}
+
+\headedsection
+{\textbf{Space Weather Week Workshop}}
+{\textsc{Boulder, CO}}
+{%
+    \headedsubsection
+    {Lightning Talk and Poster: Automatically Labelled EUV and XRay Incident Solarflare Catalog for Machine Learning}
+    {April 14–19, 2024}
+    {\bodytext{Travel expenses covered by NASA. \href{https://drive.google.com/file/d/1g72gxfjo2LF-MlzWOtOsVBnI9WsNb_RH/view}{Poster available online}}}
+}
+
+\headedsection
+{\textbf{American Geophysical Union -- Winter Meeting}}
+{\textsc{San Francisco, CA}}
+{%
+    \headedsubsection
+    {Poster: Automatically Labelled EUV and XRay Incident Solarflare Catalog for Machine Learning: Recreating full disk XRay Emission as a Weighted Linear Combination of Discrete Regions in EUV}
+    {December 2023}
+    {}
+}
+
+\headedsection
+{\textbf{University of Chicago AI + Science Summer School}}
+{\textsc{Chicago, IL}}
+{%
+    \headedsubsection
+    {Poster: Automatically Labelled EUV and XRay Incident Solarflare Catalog: The need for more data}
+    {August 2022}
+    {}
+}
+
+\headedsection
+{\textbf{233rd Meeting of the American Astronomical Society}}
+{\textsc{Seattle, WA}}
+{%
+    \headedsubsection
+    {Poster: A Hard X-ray look at the South West Region of RCW-86}
+    {January 2019}
+    {}
+}
+
+\headedsection
+{\textbf{Puerto Rico Interdisciplinary STEM Conference}}
+{\textsc{UPR-Cayey Campus}}
+{%
+    \headedsubsection
+    {Oral Presentation: L-Band Wide Observations of Star-Forming Galaxies in X-ray Selected Groups: The Quenching of Star Formation in the Group Environment}
+    {September 2015}
+    {}
+}
+
+\subsection*{Journal Clubs and Departmental Seminars}
+
+\headedsection
+{\textbf{Vanderbilt Astronomy Journal Club}}
+{\textsc{Nashville, TN}}
+{%
+    \headedsubsection
+    {Convex optimization for novel solar flare catalogs}
+    {April 2023}
+    {}
+    
+    \headedsubsection
+    {How to Train your Flare Prediction Model. Revisiting Robust Sampling of Rare Events -- Ahmadzadeh et al. 2021}
+    {April 2021}
+    {}
+    
+    \headedsubsection
+    {NuSTAR observes synchrotron emission up to 20 keV located in the South West Region of RCW-86}
+    {November 2019}
+    {}
+}
+
+\subsection*{Workshops and Training}
+
+\headedsection
+{\textbf{Arecibo Legacy Fast ALFA Undergraduate Team Workshops}}
+{\textsc{National Astronomy and Ionosphere Center}}
+{%
+    \headedsubsection
+    {ALFALFA Workshop}
+    {January 2015}
+    {\bodytext{
+        Three observing nights. Tested a new observing mode developed to search in H$_{\text{I}}$ with a ~85 MHz bandwidth for galaxies of unknown redshift for project A2010.
+    }}
+    
+    \headedsubsection
+    {ALFALFA Workshop}
+    {January 2014}
+    {\bodytext{
+        Three observing nights. Student proposal writing leader. Learned about galaxies located in groups and exhibiting tidal interactions together and the importance of H-alpha and R-images.
+    }}
+}
+
+\spacedhrule{0.5em}{-0.4em}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% HONORS, AWARDS, AND GRANTS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\roottitle{Honors, Awards, and Grants}
+
+\subsection*{Computing Resources}
+
+\begin{itemize}[leftmargin=0em, itemsep=0.5em, label={}]
+    \item \textbf{Principal Investigator: ALEXIS Director's Discretionary Allocation} \hfill 2023–Present\\
+    Argonne National Laboratory\\
+    Awarded 200 TB storage and more than 30,000 node hours
+\end{itemize}
+
+\subsection*{Fellowships and Research Support}
+
+\begin{itemize}[leftmargin=0em, itemsep=0.5em, label={}]
+    \item \textbf{Graduate Research Assistant Fellowship} \hfill 2019–2025\\
+    Vanderbilt University
+    
+    \item \textbf{Non-degree Visiting Researcher} \hfill 2021–Present\\
+    University of Chicago, Department of Computer Science
+    
+    \item \textbf{Smithsonian Astrophysical Observatory Fellowship Award} \hfill 2018 \& 2019\\
+    Fisk University
+    
+    \item \textbf{Fisk-Vanderbilt Master's to Ph.D. Bridge Fellowship} \hfill 2017–2019\\
+    Fisk University and Vanderbilt University\\
+    \href{https://www.fisk-vanderbilt-bridge.org/program}{Bridge Program}
+\end{itemize}
+
+\subsection*{Honors and Awards}
+
+\begin{itemize}[leftmargin=0em, itemsep=0.5em, label={}]
+    \item \textbf{2nd Place, Best Student Presentation} \hfill January 2025\\
+    American Meteorological Society (\$150 prize)
+    
+    \item \textbf{Travel Grant — DASH 2024 Conference} \hfill October 2024\\
+    All expenses paid by NASA
+    
+    \item \textbf{Travel Grant — SHINE 2024 Conference} \hfill August 2024\\
+    All expenses paid by SHINE
+    
+    \item \textbf{Travel Grant — Space Weather Week Workshop 2024} \hfill April 2024\\
+    All expenses paid by NASA
+    
+    \item \textbf{Dean's List} \hfill September 2015–May 2017\\
+    University of Puerto Rico — Río Piedras
+\end{itemize}
+
+\subsection*{Professional Memberships and Leadership}
+
+\begin{itemize}[leftmargin=0em, itemsep=0.5em, label={}]
+    \item \textbf{Member, High Energy Astrophysics Division} \hfill 2017–2019\\
+    American Astronomical Society
+    
+    \item \textbf{President, Society of Physics Students} \hfill January 2016–January 2017\\
+    University of Puerto Rico — Río Piedras
+    
+    \item \textbf{Member, Society of Physics Students} \hfill January 2015–January 2016\\
+    University of Puerto Rico — Río Piedras
+    
+    \item \textbf{Captain, Men's Soccer Team} \hfill August 2007–May 2012\\
+    NCAA Division II Soccer Scholarship\\
+    University of Puerto Rico — Río Piedras
+\end{itemize}
+
+\spacedhrule{0.5em}{-0.4em}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TEACHING EXPERIENCE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\roottitle{Teaching Experience}
+
+\headedsection
+{\textbf{Vanderbilt University, Department of Physics and Astronomy}}
+{\textsc{Nashville, TN}}
+{%
+    \headedsubsection
+    {Teaching Assistant, Solar System Astronomy}
+    {Winter 2021}
+    {}
+    
+    \headedsubsection
+    {Teaching Assistant, Introduction to Astrophysics (Undergraduate)}
+    {Fall 2020}
+    {}
+    
+    \headedsubsection
+    {Lecturer, Undergraduate Astronomy Laboratory}
+    {2019 -- 2020}
+    {}
+}
+
+\spacedhrule{0.5em}{-0.4em}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TECHNICAL SKILLS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\roottitle{Technical Skills}
+
+\begin{description}[leftmargin=0em, labelwidth=0em, itemsep=0.5em]
+    \item[\textbf{Programming Languages:}] Python, R, SQL, BASH, JavaScript, HTML, CSS
+    
+    \item[\textbf{Scientific Libraries:}] NumPy, Pandas, Matplotlib, SciPy, Scikit-learn, Scikit-image, TensorFlow, PyTorch, OpenCV, Astropy, SunPy, AIApy, XArray, SQLAlchemy, CVXpy
+    
+    \item[\textbf{Data Formats \& Databases:}] FITS, HDF5, netCDF4, Parquet, SQLite, PostgreSQL
+    
+    \item[\textbf{Tools \& Platforms:}] Linux/UNIX, macOS, Windows (WSL2), Git, GitHub, Docker, Kubernetes, Jupyter Notebook, VS Code, \LaTeX, Overleaf
+    
+    \item[\textbf{Web Development:}] Django, FastAPI, Dash, Streamlit, Plotly, BeautifulSoup
+    
+    \item[\textbf{High-Performance Computing:}] Supercomputing resources at Argonne National Laboratory (30,000+ node hours), parallel processing, distributed systems
+    
+    \item[\textbf{Languages:}] English (Native — Written/Spoken/Interpretation), Spanish (Native — Written/Spoken/Interpretation)
+\end{description}
+
+\spacedhrule{0.5em}{-0.4em}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SERVICE AND OUTREACH
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\roottitle{Service and Outreach}
+
+\headedsection
+{\textbf{Smithsonian National Air and Space Museum}}
+{\textsc{Washington, DC}}
+{%
+    \headedsubsection
+    {Bilingual science chat for museum visitors}
+    {September 21, 2019}
+    {}
+}
+
+\headedsection
+{\textbf{Bancroft Elementary Saturday School}}
+{\textsc{Washington, DC}}
+{%
+    \headedsubsection
+    {Bilingual science chat for 4th and 5th graders}
+    {January 13, 2018}
+    {}
+}
+
+\headedsection
+{\textbf{Hume-Fogg Academic High School}}
+{\textsc{Nashville, TN}}
+{%
+    \headedsubsection
+    {Science Inclusion Talk}
+    {February 9, 2018}
+    {}
+}
+
+\headedsection
+{\textbf{Arecibo Observatory Public Observation Day}}
+{\textsc{Arecibo, PR}}
+{%
+    \headedsubsection
+    {Society of Physics Students UPRRP Chapter}
+    {May 2015 and July 2015}
+    {}
+}
+
+\headedsection
+{\textbf{International SUN-Day}}
+{\textsc{Carolina, PR}}
+{%
+    \headedsubsection
+    {ASPIRA of Puerto Rico}
+    {July 2015}
+    {}
+}
+
+\headedsection
+{\textbf{University Gardens School of Mathematics and Science}}
+{\textsc{Carolina, PR}}
+{%
+    \headedsubsection
+    {Invited Speaker to Astrophysics Club}
+    {July 2015}
+    {}
+}
+
+\end{document}

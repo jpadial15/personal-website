@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern CSS Techniques - Your Name</title>
+    <meta name="description" content="Exploring the latest CSS features and how to use them effectively">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .blog-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+        .blog-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .blog-header h1 {
+            margin-bottom: 1rem;
+        }
+        .blog-meta {
+            color: #666;
+            font-size: 1rem;
+        }
+        .blog-content h2 {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+        .blog-content p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+        .blog-content ul {
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+        }
+        .blog-content li {
+            margin-bottom: 0.5rem;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: #007bff;
+            font-weight: 500;
+        }
+        .code-example {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 6px;
+            padding: 1rem;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <a href="../index.html">Your Name</a>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="../index.html#home" class="nav-link">Home</a>
+                <a href="../index.html#about" class="nav-link">About</a>
+                <a href="../index.html#portfolio" class="nav-link">Portfolio</a>
+                <a href="../index.html#blog" class="nav-link">Blog</a>
+                <a href="../index.html#contact" class="nav-link">Contact</a>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main style="padding-top: 100px;">
+        <article class="container">
+            <a href="index.html" class="back-link">← Back to Blog</a>
+            
+            <div class="blog-content">
+                <header class="blog-header">
+                    <h1>Modern CSS Techniques</h1>
+                    <div class="blog-meta">
+                        <time datetime="2024-01-08">January 8, 2024</time>
+                    </div>
+                </header>
+
+                <p>CSS has evolved tremendously over the past few years. Modern CSS techniques allow us to create more flexible, maintainable, and powerful designs than ever before. Let's explore some of the most impactful features that are changing how we approach web styling.</p>
+
+                <h2>CSS Grid: Revolutionary Layout</h2>
+                <p>CSS Grid has revolutionized how we approach layout design. Unlike flexbox, which is one-dimensional, CSS Grid allows for two-dimensional layouts with precise control over both rows and columns.</p>
+
+                <div class="code-example">
+.grid-container {<br>
+&nbsp;&nbsp;display: grid;<br>
+&nbsp;&nbsp;grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));<br>
+&nbsp;&nbsp;gap: 2rem;<br>
+}
+                </div>
+
+                <p>This simple code creates a responsive grid that automatically adjusts the number of columns based on available space.</p>
+
+                <h2>CSS Custom Properties (Variables)</h2>
+                <p>Custom properties bring dynamic styling capabilities to CSS, allowing you to create more maintainable and consistent designs.</p>
+
+                <div class="code-example">
+:root {<br>
+&nbsp;&nbsp;--primary-color: #007bff;<br>
+&nbsp;&nbsp;--font-size-large: 2rem;<br>
+&nbsp;&nbsp;--spacing-unit: 1rem;<br>
+}<br><br>
+.button {<br>
+&nbsp;&nbsp;background: var(--primary-color);<br>
+&nbsp;&nbsp;font-size: var(--font-size-large);<br>
+&nbsp;&nbsp;padding: var(--spacing-unit);<br>
+}
+                </div>
+
+                <h2>Flexbox for Component Layout</h2>
+                <p>While Grid excels at page layout, Flexbox remains the best choice for component-level arrangements. It's perfect for navigation bars, card layouts, and centering content.</p>
+
+                <div class="code-example">
+.flex-center {<br>
+&nbsp;&nbsp;display: flex;<br>
+&nbsp;&nbsp;justify-content: center;<br>
+&nbsp;&nbsp;align-items: center;<br>
+&nbsp;&nbsp;min-height: 100vh;<br>
+}
+                </div>
+
+                <h2>Modern Pseudo-Selectors</h2>
+                <p>New pseudo-selectors like :is(), :where(), and :has() provide more powerful and flexible ways to target elements.</p>
+
+                <div class="code-example">
+/* Target headings in articles or sections */<br>
+:is(article, section) h2 {<br>
+&nbsp;&nbsp;color: var(--primary-color);<br>
+}<br><br>
+/* Style containers that have images */<br>
+.card:has(img) {<br>
+&nbsp;&nbsp;border: 2px solid #e9ecef;<br>
+}
+                </div>
+
+                <h2>Container Queries</h2>
+                <p>Container queries allow components to adapt based on their container's size rather than the viewport size, enabling truly modular responsive design.</p>
+
+                <div class="code-example">
+.card-container {<br>
+&nbsp;&nbsp;container-type: inline-size;<br>
+}<br><br>
+@container (min-width: 400px) {<br>
+&nbsp;&nbsp;.card {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;display: flex;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;gap: 1rem;<br>
+&nbsp;&nbsp;}<br>
+}
+                </div>
+
+                <h2>Advanced Animations</h2>
+                <p>Modern CSS animations go beyond simple transitions. Features like scroll-driven animations and view transitions create engaging user experiences.</p>
+
+                <div class="code-example">
+@keyframes slideIn {<br>
+&nbsp;&nbsp;from {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;opacity: 0;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;transform: translateY(20px);<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;to {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;opacity: 1;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;transform: translateY(0);<br>
+&nbsp;&nbsp;}<br>
+}<br><br>
+.animate-on-scroll {<br>
+&nbsp;&nbsp;animation: slideIn 0.6s ease-out;<br>
+}
+                </div>
+
+                <h2>Logical Properties</h2>
+                <p>Logical properties make your CSS more adaptable to different writing modes and languages, improving international accessibility.</p>
+
+                <div class="code-example">
+/* Instead of margin-left and margin-right */<br>
+.element {<br>
+&nbsp;&nbsp;margin-inline: 1rem;<br>
+&nbsp;&nbsp;padding-block: 2rem;<br>
+}
+                </div>
+
+                <h2>Best Practices for Modern CSS</h2>
+                <ul>
+                    <li>Use CSS Grid for page layouts and Flexbox for components</li>
+                    <li>Leverage custom properties for consistent theming</li>
+                    <li>Implement container queries for truly responsive components</li>
+                    <li>Use logical properties for better internationalization</li>
+                    <li>Combine modern selectors to reduce CSS complexity</li>
+                    <li>Consider performance implications of complex animations</li>
+                </ul>
+
+                <h2>Browser Support Considerations</h2>
+                <p>While most modern CSS features have excellent browser support, always check compatibility for your target audience. Use progressive enhancement to provide fallbacks for older browsers.</p>
+
+                <p>The future of CSS is exciting, with new features being added regularly. By mastering these modern techniques, you'll be well-equipped to create beautiful, maintainable, and performant web experiences.</p>
+
+                <p>Remember: the best CSS is CSS that serves your users while remaining maintainable for your team. Choose techniques that solve real problems rather than using new features just because they're available.</p>
+            </div>
+        </article>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Your Name. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>
