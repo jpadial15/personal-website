@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found | Jorge R. Padial Doble</title>
+    <meta name="description" content="Page not found - Jorge R. Padial Doble, Ph.D. Astrophysicist & Data Scientist">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .error-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            padding: 2rem;
+        }
+        
+        .error-container {
+            max-width: 600px;
+            text-align: center;
+            padding: 3rem;
+            background: white;
+            border-radius: 20px;
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .error-code {
+            font-size: clamp(4rem, 10vw, 8rem);
+            font-weight: 700;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            line-height: 1;
+        }
+        
+        .error-title {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+        
+        .error-message {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .error-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            opacity: 0.7;
+        }
+        
+        .error-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .back-btn:hover {
+            background: var(--primary-color);
+            filter: brightness(110%);
+            transform: translateY(-2px);
+        }
+        
+        .home-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .home-btn:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .error-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .suggested-links {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        .suggested-links h3 {
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .link-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+        
+        .link-item {
+            color: var(--primary-color);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            background: rgba(5, 150, 105, 0.1);
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .link-item:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="error-page">
+        <div class="error-container">
+            <div class="error-animation">
+                <i class="fas fa-satellite error-icon"></i>
+            </div>
+            
+            <div class="error-code">404</div>
+            
+            <h1 class="error-title">Page Not Found</h1>
+            
+            <p class="error-message">
+                Oops! It looks like this page has drifted into deep space. 🚀<br>
+                The URL you're looking for doesn't exist in our solar system.
+            </p>
+            
+            <div class="error-actions">
+                <button onclick="history.back()" class="back-btn">
+                    <i class="fas fa-arrow-left"></i>
+                    Go Back
+                </button>
+                <a href="/" class="home-btn">
+                    <i class="fas fa-home"></i>
+                    Home
+                </a>
+            </div>
+            
+            <div class="suggested-links">
+                <h3>Popular Destinations</h3>
+                <div class="link-list">
+                    <a href="/#about" class="link-item">About</a>
+                    <a href="/#skills" class="link-item">Skills</a>
+                    <a href="/#projects" class="link-item">ALEXIS Project</a>
+                    <a href="/#contact" class="link-item">Contact</a>
+                    <a href="/blog/" class="link-item">Blog</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add some interactive features
+        document.addEventListener('DOMContentLoaded', function() {
+            // Track 404 errors (you could send this to analytics)
+            console.log('404 Error:', window.location.href);
+            
+            // Add keyboard navigation
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' || e.key === 'Backspace') {
+                    history.back();
+                } else if (e.key === 'Enter' || e.key === 'Home') {
+                    window.location.href = '/';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
