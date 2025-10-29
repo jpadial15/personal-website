@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALEXIS Database: Solar Flare Research Infrastructure | Jorge R. Padial Doble</title>
+    <meta name="description" content="Access the comprehensive ALEXIS database - 10 years of solar flare data, multi-instrument observations, and research-ready datasets. Register for documentation and data access.">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .database-header {
+            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+            color: white;
+            padding: 6rem 0 4rem;
+        }
+        .database-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        .database-overview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        .overview-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e5e7eb;
+        }
+        .overview-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .stat-card {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            border: 1px solid #dee2e6;
+        }
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: block;
+        }
+        .registration-section {
+            background: #f0fdf4;
+            border-radius: 12px;
+            padding: 3rem;
+            margin: 3rem 0;
+            border: 1px solid var(--primary-color);
+        }
+        .registration-form {
+            max-width: 500px;
+            margin: 2rem auto 0;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+        .form-group input, 
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.1);
+        }
+        .download-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .download-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            border: 1px solid #e5e7eb;
+            text-align: center;
+        }
+        .download-card.locked {
+            opacity: 0.6;
+            background: #f9fafb;
+        }
+        .download-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        .download-card.locked .download-icon {
+            color: #9ca3af;
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            margin-bottom: 2rem;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        .data-structure {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 1px solid #e5e7eb;
+        }
+        .folder-tree {
+            font-family: 'Courier New', monospace;
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="../index.html">JPD</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="database-header">
+        <div class="container">
+            <a href="../index.html#projects" class="back-link">
+                <i class="fas fa-arrow-left"></i> Back to Projects
+            </a>
+            <h1>ALEXIS Database: Solar Flare Research Infrastructure</h1>
+            <p style="font-size: 1.2rem; margin-top: 1rem; opacity: 0.9;">
+                Comprehensive multi-instrument solar observation database with 10 years of high-quality data products
+            </p>
+        </div>
+    </header>
+
+    <main class="database-content">
+        <section class="stats-grid">
+            <div class="stat-card">
+                <span class="stat-value">1.9+ TB</span>
+                <div>Processed Data</div>
+            </div>
+            <div class="stat-card">
+                <span class="stat-value">10 Years</span>
+                <div>Temporal Coverage</div>
+            </div>
+            <div class="stat-card">
+                <span class="stat-value">3.8M+</span>
+                <div>Observations</div>
+            </div>
+            <div class="stat-card">
+                <span class="stat-value">99.7%</span>
+                <div>Quality Score</div>
+            </div>
+        </section>
+
+        <section class="database-overview">
+            <div class="overview-card">
+                <h3><i class="fas fa-database"></i> Multi-Instrument Data</h3>
+                <p>Synchronized observations from multiple solar monitoring instruments:</p>
+                <ul>
+                    <li><strong>AIA (Atmospheric Imaging Assembly):</strong> Extreme ultraviolet imaging</li>
+                    <li><strong>SXI (Solar X-ray Imager):</strong> Soft X-ray observations</li>
+                    <li><strong>XRS (X-ray Sensor):</strong> Hard X-ray measurements</li>
+                    <li><strong>HMI (Helioseismic Magnetic Imager):</strong> Magnetic field data</li>
+                </ul>
+            </div>
+
+            <div class="overview-card">
+                <h3><i class="fas fa-chart-line"></i> Advanced Processing</h3>
+                <p>State-of-the-art data processing and quality assurance:</p>
+                <ul>
+                    <li><strong>Automated quality validation:</strong> 99.7% data integrity</li>
+                    <li><strong>Temporal clustering:</strong> Event detection and classification</li>
+                    <li><strong>Hyperspectral analysis:</strong> Multi-wavelength coordination</li>
+                    <li><strong>LASSO regression:</strong> Feature extraction and modeling</li>
+                </ul>
+            </div>
+
+            <div class="overview-card">
+                <h3><i class="fas fa-search"></i> Research Applications</h3>
+                <p>Designed for cutting-edge solar physics research:</p>
+                <ul>
+                    <li><strong>Solar flare prediction:</strong> Machine learning ready datasets</li>
+                    <li><strong>Space weather modeling:</strong> Operational forecasting support</li>
+                    <li><strong>Multi-instrument coordination:</strong> Cross-platform analysis</li>
+                    <li><strong>Long-term studies:</strong> Decade-scale solar activity trends</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="data-structure">
+            <h2>Data Products & Research Capabilities</h2>
+            <p>The ALEXIS database provides standardized, research-ready data products that enable immediate scientific analysis without extensive preprocessing:</p>
+            
+            <div class="documentation-grid">
+                <div class="doc-card">
+                    <div class="doc-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Time Series Analysis</h3>
+                    <p>Pre-processed solar flux measurements and event timelines ready for statistical analysis and machine learning applications.</p>
+                </div>
+                <div class="doc-card">
+                    <div class="doc-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <h3>Multi-Instrument Coordination</h3>
+                    <p>Synchronized observations from multiple space-based instruments with temporal alignment and cross-referencing.</p>
+                </div>
+                <div class="doc-card">
+                    <div class="doc-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Machine Learning Ready</h3>
+                    <p>Feature-engineered datasets with clustering results, regression models, and classification labels for AI research.</p>
+                </div>
+                <div class="doc-card">
+                    <div class="doc-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>High-Performance Queries</h3>
+                    <p>SQLite backend with millisecond response times, JSON encoding/decoding, and seamless pandas DataFrame integration for rapid data analysis.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="registration-section">
+            <h2 style="text-align: center; margin-bottom: 1rem;">Access ALEXIS Database Documentation</h2>
+            <p style="text-align: center; font-size: 1.1rem; margin-bottom: 2rem;">
+                Register to download the comprehensive user guide and access detailed documentation for the ALEXIS database
+            </p>
+
+            <form class="registration-form" id="alexis-registration">
+                <div class="form-group">
+                    <label for="researcher-name">Full Name *</label>
+                    <input type="text" id="researcher-name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="researcher-email">Email Address *</label>
+                    <input type="email" id="researcher-email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="institution">Institution/Organization *</label>
+                    <input type="text" id="institution" name="institution" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="research-area">Research Area</label>
+                    <select id="research-area" name="research_area">
+                        <option value="">Select your primary research area</option>
+                        <option value="solar-physics">Solar Physics</option>
+                        <option value="space-weather">Space Weather</option>
+                        <option value="machine-learning">Machine Learning Applications</option>
+                        <option value="data-science">Data Science</option>
+                        <option value="astrophysics">General Astrophysics</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="intended-use">Intended Use (Optional)</label>
+                    <textarea id="intended-use" name="intended_use" rows="3" placeholder="Briefly describe how you plan to use the ALEXIS data..."></textarea>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-full">
+                    <span>Register & Access Documentation</span>
+                    <i class="fas fa-download"></i>
+                </button>
+            </form>
+        </section>
+
+        <section class="download-links" id="download-section" style="display: none;">
+            <div class="download-card">
+                <div class="download-icon">
+                    <i class="fas fa-file-pdf"></i>
+                </div>
+                <h3>User Guide</h3>
+                <p>Comprehensive documentation for accessing and using the ALEXIS database</p>
+                <a href="#" class="btn btn-outline" id="user-guide-download">
+                    <i class="fas fa-download"></i> Download PDF
+                </a>
+            </div>
+
+            <div class="download-card">
+                <div class="download-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h3>Environment Setup</h3>
+                <p>Conda environment configuration for data analysis</p>
+                <a href="#" class="btn btn-outline" id="conda-env-download">
+                    <i class="fas fa-download"></i> Download YAML
+                </a>
+            </div>
+
+            <div class="download-card">
+                <div class="download-icon">
+                    <i class="fas fa-book"></i>
+                </div>
+                <h3>Technical Documentation</h3>
+                <p>Detailed technical specifications and API reference</p>
+                <a href="#" class="btn btn-outline" id="tech-docs-download">
+                    <i class="fas fa-external-link-alt"></i> Access Documentation
+                </a>
+            </div>
+        </section>
+
+        <section style="margin-top: 3rem;">
+            <h2>Research Impact</h2>
+            <p>The ALEXIS database has been designed to enable breakthrough research in solar physics and space weather prediction. By providing high-quality, multi-instrument data products with comprehensive documentation, researchers worldwide can focus on scientific discovery rather than data processing challenges.</p>
+            
+            <div class="overview-card" style="margin-top: 2rem;">
+                <h3>Citation Information</h3>
+                <p>When using ALEXIS data products in your research, please cite:</p>
+                <div style="background: #f8f9fa; padding: 1rem; border-radius: 6px; font-family: monospace; margin-top: 1rem; font-size: 0.9rem;">
+                    Padial-Doble, J. R. & Holley-Bockelmann, K. (2025). "ALEXIS: Recreating the X-Ray Emission from the Full Solar Disk as a Linear Combination of Discrete Regions in the Extreme Ultraviolet and Soft X-Rays." 
+                    <em>The Astrophysical Journal Supplement Series</em>, 278, 14. DOI: 10.3847/1538-4365/adbe35
+                </div>
+                
+                <h4 style="margin-top: 2rem; margin-bottom: 1rem;">BibTeX Citation:</h4>
+                <div style="background: #f8f9fa; padding: 1rem; border-radius: 6px; font-family: monospace; margin-top: 1rem; font-size: 0.85rem; line-height: 1.4; overflow-x: auto;">
+@article{PadialDoble2025,<br>
+&nbsp;&nbsp;&nbsp;abstract = {Despite a wealth of multiwavelength, spatially resolved, time-domain solar activity data, an accurate and complete temporospatial solar flare census is unavailable, which impedes our understanding of the physics of flare production. We present an Automatically Labeled EUV and X-Ray Incident SolarFlares (ALEXIS) pipeline, designed to decompose the X-ray flux of the full solar disk into a minimum set of discrete regions on the solar surface. ALEXIS returns an average rms error between the X-Ray Sensor time series and the discrete EUV signals of 0.066 ± 0.036 for a randomly selected test bed sample of 1000 hr-long data segments from 2010 May to 2020 March. Flare emission that requires multiple regions was found to be synchronous (flares occurring at the same time), sympathetic (flares separated by minutes), or needed to capture the background emission before and/or after the main flare. ALEXIS uses the original full resolution and cadence of both the Atmospheric Imaging Assembly instrument and the GOES13–15 Solar X-Ray Imager. Comparison of ALEXIS's catalog with those produced by the SWPC and SolarSoft show that these canonical databases need revisiting for 62% and 15% of the subsample, respectively. Additionally, we increased the number of flares reported by the SWPC and SolarSoft by 15%. Our pipeline misses 6.7% of the 1057 flare subsample and returns 5% of false positives from 1211 flares reported by ALEXIS. The ALEXIS catalog returns flare peak times, coordinates, the corrected scaled X-ray magnitude, and the associated NOAA active region with a HARP identifier number independently from any external data products.},<br>
+&nbsp;&nbsp;&nbsp;author = {Jorge R. Padial-Doble and Kelly Holley-Bockelmann},<br>
+&nbsp;&nbsp;&nbsp;doi = {10.3847/1538-4365/adbe35},<br>
+&nbsp;&nbsp;&nbsp;issn = {0067-0049},<br>
+&nbsp;&nbsp;&nbsp;journal = {The Astrophysical Journal Supplement Series},<br>
+&nbsp;&nbsp;&nbsp;month = {5},<br>
+&nbsp;&nbsp;&nbsp;pages = {14},<br>
+&nbsp;&nbsp;&nbsp;title = {ALEXIS: Recreating the X-Ray Emission from the Full Solar Disk as a Linear Combination of Discrete Regions in the Extreme Ultraviolet and Soft X-Rays},<br>
+&nbsp;&nbsp;&nbsp;volume = {278},<br>
+&nbsp;&nbsp;&nbsp;year = {2025}<br>
+}
+                </div>
+            </div>
+        </section>
+
+        <a href="../index.html#projects" class="back-link" style="margin-top: 3rem;">
+            <i class="fas fa-arrow-left"></i> Back to Projects
+        </a>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Jorge R. Padial Doble - Ph.D. Astrophysicist, Solar Physics Researcher, HPC Expert. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Registration form handling
+        document.getElementById('alexis-registration').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show success message
+            alert('Registration successful! Your downloads are now available below.');
+            
+            // Show download section
+            document.getElementById('download-section').style.display = 'grid';
+            
+            // Scroll to downloads
+            document.getElementById('download-section').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        // Download handlers (placeholder - you can implement actual file serving)
+        document.getElementById('user-guide-download').addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('User guide download would be implemented here. You can serve the PDF file from your server.');
+        });
+
+        document.getElementById('conda-env-download').addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('Conda environment download would be implemented here.');
+        });
+
+        document.getElementById('tech-docs-download').addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('Technical documentation access would be implemented here.');
+        });
+    </script>
+</body>
+</html>

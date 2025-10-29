@@ -618,6 +618,52 @@ section {
     font-weight: 500;
 }
 
+/* Enhanced Database Project Features */
+.project-features {
+    margin: 1.5rem 0;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    background: var(--bg-secondary);
+    border-radius: 8px;
+    border-left: 3px solid var(--primary-color);
+}
+
+.feature-item i {
+    color: var(--primary-color);
+    font-size: 1.25rem;
+    min-width: 20px;
+}
+
+.feature-item span {
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.database-access {
+    background: #f0fdf4;
+    border: 1px solid var(--primary-color);
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 1rem 0;
+}
+
+.database-access p {
+    margin: 0;
+    font-size: 0.95rem;
+}
+
 /* Contact Section */
 .contact-content {
     display: grid;
