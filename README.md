@@ -8,7 +8,7 @@ My professional website showcasing astrophysics research, solar physics expertis
 
 This isn't just another portfolio site—it's a comprehensive showcase of real research impact:
 
-- **ALEXIS Database**: 1.9TB of solar flare data serving 200+ global institutions
+- **ALEXIS Database**: 1.9TB of structured solar flare data with comprehensive documentation
 - **Published Research**: ApJS paper with 95%+ accuracy in magnetic reconnection detection  
 - **Production Systems**: SQLite backends with millisecond query performance
 - **Global SEO**: Optimized for academic and industry opportunities across 13 countries
