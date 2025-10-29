@@ -166,9 +166,12 @@
             <a href="../index.html#projects" class="back-link">
                 <i class="fas fa-arrow-left"></i> Back to Projects
             </a>
-            <h1>ALEXIS Database: Solar Flare Research Infrastructure</h1>
-            <p style="font-size: 1.2rem; margin-top: 1rem; opacity: 0.9;">
+            <h1 style="font-size: 2.5rem; line-height: 1.2; margin-bottom: 1rem;">Focus on Scientific Discovery Rather Than Data Processing Challenges</h1>
+            <p style="font-size: 1.1rem; margin-top: 0.5rem; margin-bottom: 1rem; opacity: 0.9; line-height: 1.4;">
                 Comprehensive multi-instrument solar observation database cataloging C-Class and above flares from May 2010 to March 2020
+            </p>
+            <p style="font-size: 1.0rem; margin-top: 0.5rem; opacity: 0.85; max-width: 800px; line-height: 1.5;">
+                ALEXIS provides cleaned, validated time-series data from multi-instrument solar observations spanning May 2010 to March 2020. The database contains quality-assured flare classifications and temporal analysis for C-Class and above solar events.
             </p>
         </div>
     </header>
@@ -265,9 +268,9 @@
         </section>
 
         <section class="registration-section">
-            <h2 style="text-align: center; margin-bottom: 1rem;">Access ALEXIS Database Documentation</h2>
+            <h2 style="text-align: center; margin-bottom: 1rem;">Request ALEXIS Database Access</h2>
             <p style="text-align: center; font-size: 1.1rem; margin-bottom: 2rem;">
-                Register to download the comprehensive user guide and access detailed documentation for the ALEXIS database
+                Register your interest in the ALEXIS database. Our research team will contact you within 48 hours to discuss access options and provide personalized documentation based on your research needs.
             </p>
 
             <form class="registration-form" id="alexis-registration" action="https://formspree.io/f/xqagblpv" method="POST">
@@ -304,55 +307,38 @@
                     <textarea id="intended-use" name="intended_use" rows="3" placeholder="Briefly describe how you plan to use the ALEXIS data..."></textarea>
                 </div>
                 
-                <input type="hidden" name="_next" value="https://jpadial15.github.io/personal-website/blog/alexis-database.html#download-section">
-                <input type="hidden" name="_subject" value="ALEXIS Database Registration">
+                <input type="hidden" name="_next" value="https://jpadial15.github.io/personal-website/blog/alexis-database.html#confirmation-section">
+                <input type="hidden" name="_subject" value="ALEXIS Database Access Request">
                 <button type="submit" class="btn btn-primary btn-full">
-                    <span>Register & Access Documentation</span>
-                    <i class="fas fa-download"></i>
+                    <span>Submit Registration Request</span>
+                    <i class="fas fa-paper-plane"></i>
                 </button>
             </form>
         </section>
 
-        <section class="download-links" id="download-section" style="display: none;">
-            <div class="download-card">
-                <div class="download-icon">
-                    <i class="fas fa-file-pdf"></i>
+        <section class="confirmation-section" id="confirmation-section" style="display: none;">
+            <div class="overview-card" style="text-align: center; margin-top: 2rem;">
+                <div style="color: var(--primary-color); font-size: 3rem; margin-bottom: 1rem;">
+                    <i class="fas fa-check-circle"></i>
                 </div>
-                <h3>User Guide</h3>
-                <p>Comprehensive documentation for accessing and using the ALEXIS database</p>
-                <a href="#" class="btn btn-outline" id="user-guide-download">
-                    <i class="fas fa-download"></i> Download PDF
-                </a>
-            </div>
-
-            <div class="download-card">
-                <div class="download-icon">
-                    <i class="fas fa-code"></i>
-                </div>
-                <h3>Environment Setup</h3>
-                <p>Conda environment configuration for data analysis</p>
-                <a href="#" class="btn btn-outline" id="conda-env-download">
-                    <i class="fas fa-download"></i> Download YAML
-                </a>
-            </div>
-
-            <div class="download-card">
-                <div class="download-icon">
-                    <i class="fas fa-book"></i>
-                </div>
-                <h3>Technical Documentation</h3>
-                <p>Detailed technical specifications and API reference</p>
-                <a href="#" class="btn btn-outline" id="tech-docs-download">
-                    <i class="fas fa-external-link-alt"></i> Access Documentation
-                </a>
+                <h3>Registration Received!</h3>
+                <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">
+                    Thank you for your interest in the ALEXIS database. Our research team has received your registration and will contact you within 48 hours to:
+                </p>
+                <ul style="text-align: left; max-width: 500px; margin: 0 auto 1.5rem;">
+                    <li>Discuss your specific research requirements</li>
+                    <li>Provide customized documentation and access instructions</li>
+                    <li>Offer consultation on data analysis approaches</li>
+                    <li>Connect you with relevant collaborative opportunities</li>
+                </ul>
+                <p style="color: var(--text-secondary); font-size: 0.9rem;">
+                    Please check your email for a confirmation message. If you have urgent questions, feel free to contact us through the main website.
+                </p>
             </div>
         </section>
 
         <section style="margin-top: 3rem;">
-            <h2>Research Impact</h2>
-            <p>The ALEXIS database has been designed to enable breakthrough research in solar physics and space weather prediction. By providing high-quality, multi-instrument data products with comprehensive documentation, researchers worldwide can focus on scientific discovery rather than data processing challenges.</p>
-            
-            <div class="overview-card" style="margin-top: 2rem;">
+            <div class="overview-card">
                 <h3>Citation Information</h3>
                 <p>When using ALEXIS data products in your research, please cite:</p>
                 <div style="background: #f8f9fa; padding: 1rem; border-radius: 6px; font-family: monospace; margin-top: 1rem; font-size: 0.9rem;">
@@ -393,29 +379,11 @@
         // Registration form handling - Formspree will handle submission
         document.getElementById('alexis-registration').addEventListener('submit', function(e) {
             // Let Formspree handle the form submission
-            // After successful submission, user will receive email confirmation
-            
-            // Optional: Show download section immediately for better UX
+            // Show confirmation message for better UX
             setTimeout(function() {
-                document.getElementById('download-section').style.display = 'grid';
-                document.getElementById('download-section').scrollIntoView({ behavior: 'smooth' });
+                document.getElementById('confirmation-section').style.display = 'block';
+                document.getElementById('confirmation-section').scrollIntoView({ behavior: 'smooth' });
             }, 1000);
-        });
-
-        // Download handlers (placeholder - you can implement actual file serving)
-        document.getElementById('user-guide-download').addEventListener('click', function(e) {
-            e.preventDefault();
-            alert('User guide download would be implemented here. You can serve the PDF file from your server.');
-        });
-
-        document.getElementById('conda-env-download').addEventListener('click', function(e) {
-            e.preventDefault();
-            alert('Conda environment download would be implemented here.');
-        });
-
-        document.getElementById('tech-docs-download').addEventListener('click', function(e) {
-            e.preventDefault();
-            alert('Technical documentation access would be implemented here.');
         });
     </script>
 </body>
