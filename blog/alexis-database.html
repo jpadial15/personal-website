@@ -270,7 +270,7 @@
                 Register to download the comprehensive user guide and access detailed documentation for the ALEXIS database
             </p>
 
-            <form class="registration-form" id="alexis-registration">
+            <form class="registration-form" id="alexis-registration" action="https://formspree.io/f/xqagblpv" method="POST">
                 <div class="form-group">
                     <label for="researcher-name">Full Name *</label>
                     <input type="text" id="researcher-name" name="name" required>
@@ -304,6 +304,8 @@
                     <textarea id="intended-use" name="intended_use" rows="3" placeholder="Briefly describe how you plan to use the ALEXIS data..."></textarea>
                 </div>
                 
+                <input type="hidden" name="_next" value="https://jpadial15.github.io/personal-website/blog/alexis-database.html#download-section">
+                <input type="hidden" name="_subject" value="ALEXIS Database Registration">
                 <button type="submit" class="btn btn-primary btn-full">
                     <span>Register & Access Documentation</span>
                     <i class="fas fa-download"></i>
@@ -388,18 +390,16 @@
     </footer>
 
     <script>
-        // Registration form handling
+        // Registration form handling - Formspree will handle submission
         document.getElementById('alexis-registration').addEventListener('submit', function(e) {
-            e.preventDefault();
+            // Let Formspree handle the form submission
+            // After successful submission, user will receive email confirmation
             
-            // Show success message
-            alert('Registration successful! Your downloads are now available below.');
-            
-            // Show download section
-            document.getElementById('download-section').style.display = 'grid';
-            
-            // Scroll to downloads
-            document.getElementById('download-section').scrollIntoView({ behavior: 'smooth' });
+            // Optional: Show download section immediately for better UX
+            setTimeout(function() {
+                document.getElementById('download-section').style.display = 'grid';
+                document.getElementById('download-section').scrollIntoView({ behavior: 'smooth' });
+            }, 1000);
         });
 
         // Download handlers (placeholder - you can implement actual file serving)
