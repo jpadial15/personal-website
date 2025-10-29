@@ -1,119 +1,87 @@
-# Personal Website
+# Jorge R. Padial Doble - Personal Website
 
-A modern, responsive personal website built with HTML5, CSS3, and JavaScript. Perfect for showcasing your portfolio, blog posts, and professional information.
+My professional website showcasing astrophysics research, solar physics expertise, and software development projects. Built to highlight my work in space weather prediction, database architecture, and scientific computing.
 
-## 🌟 Features
+**� Live Site**: [jpadial15.github.io/personal-website](https://jpadial15.github.io/personal-website/)
 
-- **Responsive Design**: Looks great on all devices (desktop, tablet, mobile)
-- **Modern UI**: Clean, professional design with smooth animations
-- **Portfolio Section**: Showcase your projects with descriptions and links
-- **Blog Integration**: Share your thoughts and expertise
-- **Contact Form**: Let visitors get in touch with you
-- **GitHub Pages Ready**: Easy deployment to GitHub Pages
+## What You'll Find Here
 
-## 🚀 Quick Start
+This isn't just another portfolio site—it's a comprehensive showcase of real research impact:
 
-1. **Clone or download** this repository
-2. **Customize** the content with your personal information
-3. **Deploy** to GitHub Pages or your preferred hosting service
+- **ALEXIS Database**: 1.9TB of solar flare data serving 200+ global institutions
+- **Published Research**: ApJS paper with 95%+ accuracy in magnetic reconnection detection  
+- **Production Systems**: SQLite backends with millisecond query performance
+- **Global SEO**: Optimized for academic and industry opportunities across 13 countries
 
-## 📁 Project Structure
+## Why I Built This
+
+As an astrophysicist transitioning between academia and industry, I needed a platform that could effectively communicate complex technical work to diverse audiences—from research collaborators to potential employers in data science and HPC roles.
+
+## Key Components
 
 ```
-github_personal_website/
-├── index.html              # Main homepage
-├── css/
-│   └── style.css          # All styles
-├── js/
-│   └── script.js          # Interactive functionality  
-├── blog/
-│   ├── index.html         # Blog listing page
-│   ├── getting-started-with-web-development.html
-│   └── modern-css-techniques.html
-├── .github/
-│   └── copilot-instructions.md
-└── README.md
+├── index.html                    # Main site with ALEXIS projects showcase
+├── alexis-database.html         # Comprehensive database documentation
+├── css/style.css               # Argonne Green theme + responsive design
+├── js/script.js                # Interactive elements and animations
+├── blog/                       # Technical blog posts on solar physics
+│   ├── alexis-etl-pipeline.html
+│   ├── alexis-solar-flare-catalog.html
+│   └── alexis-data-product.html
+├── sitemap.xml                 # SEO optimization for global reach
+├── manifest.json               # PWA capabilities
+└── robots.txt                  # Search engine directives
 ```
 
-## ✏️ Customization Guide
+## Technical Highlights
 
-### 1. Personal Information
-Update the following in `index.html`:
-- Change "Your Name" to your actual name
-- Update the hero section with your title/profession
-- Modify the about section with your background
-- Add your actual email and social media links
+### Research Infrastructure
+- **ALEXIS Database**: Production-grade system with 12M+ observations and 8000+ cataloged C-class solar flares
+- **High-Performance Queries**: SQLite backend with millisecond response times and pandas integration
+- **Quality Assurance**: Comprehensive validation pipeline ensuring data integrity
 
-### 2. Portfolio Projects
-In the portfolio section, replace the placeholder projects with your actual work:
-- Update project titles and descriptions
-- Add links to live demos and GitHub repositories
-- Replace placeholder images with actual project screenshots
+### Publication & Impact
+- **Peer-Reviewed Research**: Published in The Astrophysical Journal Supplement Series (ApJS)
+- **Novel Algorithms**: First-principles framework achieving 95%+ accuracy in magnetic reconnection detection
+- **Global Reach**: Website optimized for opportunities across US, EU, Asia-Pacific, and Latin American markets
 
-### 3. Blog Content
-- Add new blog posts by creating HTML files in the `blog/` directory
-- Update the blog index page to include your new posts
-- Use the existing blog post templates as a starting point
+### Technical Stack
+- **Frontend**: Semantic HTML5, modern CSS3 with custom properties, vanilla JavaScript
+- **Performance**: Optimized for fast loading and mobile responsiveness
+- **SEO**: Comprehensive meta tags, structured data, and multi-language targeting
+- **Hosting**: GitHub Pages with custom domain support
 
-### 4. Styling
-Customize the look in `css/style.css`:
-- Change color scheme by updating CSS custom properties
-- Modify fonts, spacing, and layout to match your preferences
-- Add or remove sections as needed
+## Local Development
 
-### 5. Contact Form
-The contact form currently shows a simple alert. To make it functional:
-- Integrate with a service like Formspree, Netlify Forms, or EmailJS
-- Update the form handling code in `js/script.js`
+Run locally with Python's built-in server:
+```bash
+python3 -m http.server 8000
+```
+Then visit `http://localhost:8000`
 
-## 🌐 Deployment to GitHub Pages
+## Recent Updates
 
-1. **Create a new repository** on GitHub
-2. **Upload your files** to the repository
-3. **Go to Settings** → Pages
-4. **Select source**: Deploy from a branch
-5. **Choose branch**: main (or master)
-6. **Your site will be available** at: `https://yourusername.github.io/repository-name`
+- **Enhanced ALEXIS Database Page**: Comprehensive documentation with registration system
+- **Improved Performance**: Optimized CSS and JavaScript for faster loading
+- **Global SEO**: Multi-language meta tags targeting international opportunities
+- **Citation Integration**: Full BibTeX citations for academic credibility
 
-### Custom Domain (Optional)
-To use a custom domain:
-1. Add a `CNAME` file with your domain name
-2. Configure DNS settings with your domain provider
-3. Update GitHub Pages settings to use the custom domain
+## Professional Goals
 
-## 🛠️ Development
+This website serves multiple purposes in my career transition:
+- **Academic Positions**: Showcasing published research and technical expertise
+- **Industry Roles**: Demonstrating database architecture and software development skills
+- **Consulting Opportunities**: Highlighting specialized knowledge in solar physics and space weather
+- **Global Networking**: SEO optimization for international collaboration opportunities
 
-To run locally:
-1. Open `index.html` in your browser, or
-2. Use a local server like Live Server extension in VS Code
-3. Make changes and refresh to see updates
+## Contact & Collaboration
 
-## 📱 Browser Support
+Interested in solar physics research, space weather prediction, or scientific computing projects? 
 
-- Chrome (latest)
-- Firefox (latest) 
-- Safari (latest)
-- Edge (latest)
-
-## 🎨 Technologies Used
-
-- **HTML5**: Semantic markup
-- **CSS3**: Modern styling with Grid, Flexbox, and animations
-- **JavaScript (ES6+)**: Interactive functionality
-- **Responsive Design**: Mobile-first approach
-
-## 📝 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
-## 🤝 Contributing
-
-Feel free to fork this project and customize it for your own use! If you make improvements that could benefit others, pull requests are welcome.
-
-## 📧 Support
-
-If you have questions or need help customizing your website, feel free to open an issue or reach out.
+**Email**: [Contact through website form](https://jpadial15.github.io/personal-website/#contact)  
+**Research**: Focus on magnetic reconnection, heliophysics, and machine learning applications  
+**Skills**: Python, SQL, HPC, data visualization, and scientific software development
 
 ---
 
-**Happy coding!** 🚀
+*Built with precision, optimized for impact.* ⚡
