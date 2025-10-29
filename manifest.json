@@ -12,7 +12,7 @@
   "dir": "ltr",
   "icons": [
     {
-      "src": "profile-image.jpg",
+      "src": "assets/profile-image.jpg",
       "sizes": "400x400",
       "type": "image/jpeg",
       "purpose": "any maskable"

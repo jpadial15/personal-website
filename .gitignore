@@ -2,7 +2,7 @@
 jorge-padial-cv-academic.tex
 
 # Large/original images
-FAMILY-11.jpg
+assets/FAMILY-11.jpg
 
 # OS files
 .DS_Store
@@ -15,5 +15,8 @@ Thumbs.db
 
 # Logs
 *.log
+
+# Django migration planning
+django-migration-plan.md
 
 ALEXIS_argonne_database_docs/
