@@ -62,6 +62,135 @@
             padding: 1rem;
             margin: 1.5rem 0;
         }
+        .technical-note {
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+            border-radius: 6px;
+            padding: 1rem;
+            margin: 2rem 0;
+            font-style: italic;
+            color: #1e40af;
+        }
+        .image-pair {
+            display: flex;
+            gap: 1rem;
+            margin: 2rem 0 0.5rem 0;
+            align-items: center;
+        }
+        .image-container {
+            flex: 1;
+        }
+        .blog-image {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .image-caption {
+            text-align: center;
+            font-style: italic;
+            color: #666;
+            font-size: 0.9rem;
+            margin: 0.5rem 0 2rem 0;
+        }
+        @media (max-width: 768px) {
+            .image-pair {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+        
+        /* ALEXIS Animation */
+        .alexis-demo {
+            background: #1a1a2e;
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .solar-disk {
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, #ffd700 0%, #ff8c00 50%, #ff4500 100%);
+            border-radius: 50%;
+            margin: 0 auto;
+            position: relative;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+        }
+        
+        .flare-region {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: #ffffff;
+            border-radius: 50%;
+            animation: flare-pulse 6s ease-in-out infinite;
+        }
+        
+        .region-1 { top: 30%; left: 20%; animation-delay: 1.2s; }
+        .region-2 { top: 60%; right: 25%; animation-delay: 3.0s; }
+        .region-3 { bottom: 35%; left: 40%; animation-delay: 1.8s; animation-name: flare-pulse-long; }
+        
+        @keyframes flare-pulse {
+            0%, 15%, 85%, 100% { 
+                transform: scale(0.8); 
+                opacity: 0.3;
+                box-shadow: 0 0 5px rgba(255, 255, 255, 0.4);
+            }
+            5%, 10% { 
+                transform: scale(2.2); 
+                opacity: 1;
+                box-shadow: 0 0 25px rgba(255, 255, 255, 1);
+            }
+        }
+        
+        @keyframes flare-pulse-long {
+            0%, 20%, 80%, 100% { 
+                transform: scale(0.8); 
+                opacity: 0.3;
+                box-shadow: 0 0 5px rgba(255, 255, 255, 0.4);
+            }
+            5% { 
+                transform: scale(2.2); 
+                opacity: 1;
+                box-shadow: 0 0 25px rgba(255, 255, 255, 1);
+            }
+            15% { 
+                transform: scale(1.8); 
+                opacity: 0.9;
+                box-shadow: 0 0 20px rgba(255, 255, 255, 0.9);
+            }
+        }
+        
+        .demo-caption {
+            text-align: center;
+            color: #fff;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .signal-chart {
+            background: #0f172a;
+            border-radius: 8px;
+            padding: 10px;
+            margin: 1rem 0;
+            border: 1px solid #334155;
+        }
+        
+        .signal-chart svg {
+            width: 100%;
+            height: 80px;
+        }
+        
+        #fluxCurve {
+            filter: drop-shadow(0 0 4px rgba(52, 211, 153, 0.4));
+        }
+        
+        #indicator {
+            filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.8));
+        }
     </style>
 </head>
 <body>
@@ -80,279 +209,200 @@
             </a>
             <h1>ALEXIS ETL Pipeline: Technical Deep Dive</h1>
             <div class="blog-meta">
-                <i class="fas fa-calendar"></i> Technical Insight | 
-                <i class="fas fa-tags"></i> HPC, ETL, Convex Optimization
+                <i class="fas fa-calendar"></i> Technical Deep Dive | 
+                <i class="fas fa-tags"></i> HPC, ETL, Convex Optimization, Argonne National Labs
             </div>
         </div>
     </header>
 
     <main class="blog-content">
-        <h2>Architecture Overview</h2>
+        <h2>The Solar Flare Problem</h2>
         <p>
-            The ALEXIS ETL pipeline processes over 100TB of multi-instrument solar data from AIA (Atmospheric Imaging Assembly), 
-            SXI (Solar X-ray Imager), and XRS (X-ray Sensor) instruments. The system runs on Argonne Leadership Computing 
-            Facility supercomputers, leveraging distributed computing for scalable data processing.
-        </p>
-
-        <h3>System Architecture Flow</h3>
-        <div class="code-block">
-┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-│   Data Sources  │    │  Ingestion Layer │    │ Processing Core │
-├─────────────────┤    ├─────────────────┤    ├─────────────────┤
-│ AIA FITS Files  │───▶│ FITS Validator   │───▶│ Parallel Workers │
-│ SXI Archives    │    │ Metadata Parser  │    │ Convex Optimizer │
-│ XRS Time Series │    │ Quality Filter   │    │ Feature Extractor│
-└─────────────────┘    └─────────────────┘    └─────────────────┘
-         │                       │                       │
-         ▼                       ▼                       ▼
-┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-│ Staging Storage │    │   HPC Scheduler  │    │  Output Layer   │
-├─────────────────┤    ├─────────────────┤    ├─────────────────┤
-│ 200TB Lustre FS │    │ SLURM Job Queue  │    │ HDF5 Catalogs   │
-│ Temp Workspace  │    │ MPI Coordination │    │ Parquet Tables  │
-│ Error Logs      │    │ Resource Monitor │    │ Quality Reports │
-└─────────────────┘    └─────────────────┘    └─────────────────┘
-
-Data Flow: Raw FITS → Validation → Parallel Processing → Catalog Generation
-Scale: 30,000+ CPU hours | 100+ TB processed | 99.8% success rate
-        </div>
-
-        <h2>Data Processing Workflow</h2>
-        
-        <h3>Data Format Specifications</h3>
-        <div class="code-block">
-Input Formats:
-├── FITS (Flexible Image Transport System)
-│   ├── AIA: 4096×4096 pixels, 8 EUV wavelengths, 12-second cadence
-│   ├── XRS: Time series, 1-8 Å and 0.5-4 Å channels, 2-second resolution  
-│   └── SXI: 512×512 pixels, soft X-ray, 1-minute cadence
-│
-├── HDF5 (Hierarchical Data Format)
-│   ├── Intermediate processing results
-│   ├── Calibration tables and correction matrices
-│   └── Quality assessment metrics per observation
-│
-└── Parquet (Columnar Storage)
-    ├── Final catalog tables with optimized query performance
-    ├── Flare event metadata and classification results
-    └── Cross-reference indices for multi-instrument observations
-
-Schema Design:
-- Primary keys: instrument + timestamp + spatial_region_id
-- Foreign keys: Link observations across wavelengths and instruments  
-- Partitioning: By year and instrument for optimal HPC I/O patterns
-        </div>
-
-        <h3>1. Data Ingestion</h3>
-        <p>
-            Raw solar imaging data arrives in FITS format from multiple instruments. The pipeline handles:
-        </p>
-        <ul>
-            <li>Temporal alignment across different instrument cadences (12s AIA → 60s SXI → 2s XRS)</li>
-            <li>Spatial co-registration of multi-wavelength observations using astrometric solutions</li>
-            <li>Quality filtering and metadata validation with automated anomaly detection</li>
-            <li>FITS header standardization across instrument-specific conventions</li>
-        </ul>
-
-        <h3>2. Feature Extraction</h3>
-        <p>
-            Automated feature extraction identifies solar active regions and flare events using:
-        </p>
-        <div class="highlight-box">
-            <strong>Key Innovation:</strong> Convex optimization techniques ensure robust feature identification 
-            even in noisy data conditions, avoiding local minima problems common in traditional approaches.
-        </div>
-
-        <h3>3. HPC Optimization</h3>
-        <p>
-            Pipeline optimization for supercomputer environments includes:
-        </p>
-        <ul>
-            <li><strong>Memory Management:</strong> Efficient handling of large FITS files using memory mapping</li>
-            <li><strong>Parallel Processing:</strong> MPI-based parallelization across compute nodes</li>
-            <li><strong>I/O Optimization:</strong> Minimized disk I/O through strategic data caching</li>
-        </ul>
-
-        <h2>Convex Optimization Framework</h2>
-        <p>
-            The pipeline employs convex optimization for several critical tasks:
+            Solar flares are among the most energetic events in our solar system, releasing the equivalent 
+            of billions of nuclear bombs in minutes. Yet despite decades of space-based observations, we 
+            lack an accurate census of these events. Current catalogs from SWPC and SolarSoft suffer from 
+            a fundamental limitation: they rely on full-disk X-ray measurements that cannot distinguish 
+            where on the Sun these explosions actually occur.
         </p>
         
-        <h3>Solar Flare Detection</h3>
         <p>
-            Rather than using computationally expensive deep learning models, we formulate flare detection as 
-            a convex optimization problem. This approach provides:
-        </p>
-        <ul>
-            <li>Guaranteed global optimum solutions</li>
-            <li>Interpretable model parameters</li>
-            <li>Computational efficiency suitable for HPC environments</li>
-        </ul>
-
-        <div class="code-block">
-Mathematical Formulation:
-
-Objective Function:
-    minimize: ||X_reconstructed - X_observed||₂² + λ||W||₁
-
-Subject to:
-    X_reconstructed = Σᵢ wᵢ * Bᵢ  (linear combination of basis functions)
-    wᵢ ≥ 0  (non-negativity constraint for physical interpretation)
-    ||w||₁ ≤ C  (sparsity constraint to prevent overfitting)
-
-Where:
-- X_observed: Multi-wavelength EUV/X-ray observations
-- Bᵢ: Basis functions representing discrete solar regions  
-- wᵢ: Weights indicating flare probability per region
-- λ: Regularization parameter (tuned via cross-validation)
-- C: Sparsity bound determined by physical constraints
-        </div>
-
-        <h3>Spatial Co-registration</h3>
-        <p>
-            Multi-instrument image alignment uses convex formulations that ensure robust registration 
-            across different wavelengths and spatial resolutions.
+            This spatial blindness creates systematic problems. Smaller flares get missed entirely, while 
+            larger events are often mislabeled when multiple active regions flare simultaneously. The result 
+            is an incomplete picture that hampers both our scientific understanding and our ability to predict 
+            dangerous space weather events.
         </p>
 
-        <h2>Performance Metrics & Scale</h2>
-        <div class="highlight-box">
-            <strong>Computational Scale:</strong> 30,000+ CPU hours at Argonne National Laboratory ALCF<br>
-            <strong>Data Volume:</strong> 100+ TB processed across AIA, SXI, and XRS instrument archives<br>
-            <strong>Storage Allocation:</strong> 200 TB dedicated storage for ALEXIS Director's Discretionary project<br>
-            <strong>Processing Efficiency:</strong> Convex optimization reduces computation time by 60% vs. traditional methods<br>
-            <strong>Throughput:</strong> ~2.5 TB/day sustained processing rate on distributed infrastructure<br>
-            <strong>Memory Optimization:</strong> Efficient FITS handling with <4GB memory footprint per node<br>
-            <strong>Reliability:</strong> 99.8% successful processing rate with automated error recovery<br>
-            <strong>Temporal Coverage:</strong> Complete 10-year solar cycle analysis (2010-2020)
+        <div class="image-pair">
+            <div class="image-container">
+                <img src="../assets/xrs_flux_vs_time_gannon_storm_2024.png" alt="GOES X-ray flux time series" class="blog-image">
+            </div>
+            <div class="image-container">
+                <img src="../assets/Sun_AIA_composite_gannon_storm_2024_cropped.png" alt="Solar AIA composite image" class="blog-image">
+            </div>
         </div>
+        <p class="image-caption">
+            When and where is that flare? Traditional X-ray measurements (left) tell us when, but not where. 
+            ALEXIS combines this with high-resolution solar imagery (right) to answer both questions.
+        </p>
 
-        <h2>Technical Challenges & Solutions</h2>
+        <h2>A New Approach</h2>
+        <p>
+            ALEXIS takes a fundamentally different approach. Instead of treating the Sun as a single X-ray 
+            source, we decompose its emission into contributions from discrete surface regions. It's like 
+            having a recipe for a complex dish. If you know the final taste and all the available ingredients, 
+            you can determine which ingredients were actually used and in what proportions.
+        </p>
         
-        <h3>Challenge 1: Memory-Constrained Processing</h3>
         <p>
-            <strong>Problem:</strong> Individual FITS files can exceed 1GB, with thousands requiring simultaneous processing 
-            across limited-memory compute nodes.
-        </p>
-        <p>
-            <strong>Solution:</strong> Implemented memory-mapped file access with lazy loading, reducing memory footprint 
-            by 75% while maintaining processing speed through strategic data chunking.
-        </p>
-
-        <h3>Challenge 2: Instrument Calibration Drift</h3>
-        <p>
-            <strong>Problem:</strong> Multi-year datasets show systematic calibration drift affecting cross-temporal analysis.
-        </p>
-        <p>
-            <strong>Solution:</strong> Developed adaptive calibration correction using convex optimization to minimize 
-            cross-instrument residuals, ensuring temporal consistency across the full dataset.
+            The breakthrough lies in combining temporal and spatial information at a cadence that only AIA 
+            can provide. The Solar Dynamics Observatory captures detailed images in seven different extreme 
+            ultraviolet wavelengths every 12 seconds, which is fast enough to track the rapid evolution of flare events 
+            as they unfold. By mathematically linking this high-cadence spatial detail with the temporal 
+            precision of GOES X-ray measurements, we can determine not just when flares occur, but exactly 
+            where on the solar surface they originate.
         </p>
 
-        <h3>Challenge 3: HPC Queue Optimization</h3>
+        <h3>The Mathematical Foundation</h3>
         <p>
-            <strong>Problem:</strong> Argonne ALCF queue systems require optimal job sizing to minimize wait times while 
-            maximizing resource utilization.
+            At its core, ALEXIS solves an inverse problem using convex optimization. We model the observed 
+            X-ray flux as a weighted sum of contributions from candidate flaring regions, then find the 
+            sparsest solution, meaning the minimum number of regions needed to explain the data. This sparsity 
+            constraint aligns with physical intuition: most flares originate from just a few active regions, 
+            not the entire solar surface.
         </p>
-        <p>
-            <strong>Solution:</strong> Created dynamic job partitioning algorithm that adapts batch sizes based on queue 
-            status and data characteristics, reducing average job wait time by 40%.
-        </p>
 
-        <h2>Technical Stack</h2>
-        <div class="code-block">
-Core Processing:
-- Python 3.9+: Primary development language
-- NumPy/SciPy: Numerical computations and scientific algorithms
-- Pandas: Metadata handling and time-series operations
-- CVXPY: Convex optimization framework for robust solutions
-
-Data Handling:
-- Astropy: FITS file I/O and coordinate transformations
-- SunPy: Solar physics specific data structures and tools
-- AIApy: AIA-specific calibration and processing routines
-- h5py: HDF5 format for intermediate data storage
-
-HPC Infrastructure:
-- MPI4Py: Distributed computing coordination
-- SLURM: Job scheduling and resource management
-- Lustre: High-performance parallel file system
-- Intel MPI: Optimized message passing for compute clusters
+        <div class="alexis-demo">
+            <div class="solar-disk">
+                <div class="flare-region region-1"></div>
+                <div class="flare-region region-2"></div>
+                <div class="flare-region region-3"></div>
+            </div>
+            <div class="signal-chart">
+                <svg width="100%" height="100" viewBox="0 0 330 100">
+                    <defs>
+                        <linearGradient id="signalGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:#34d399;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#059669;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <!-- Background grid -->
+                    <g stroke="#334155" stroke-width="0.5" opacity="0.3">
+                        <line x1="30" y1="70" x2="310" y2="70"/>
+                        <line x1="30" y1="50" x2="310" y2="50"/>
+                        <line x1="30" y1="30" x2="310" y2="30"/>
+                        <line x1="30" y1="10" x2="310" y2="10"/>
+                    </g>
+                    <!-- Axis lines -->
+                    <g stroke="#64748b" stroke-width="1">
+                        <line x1="30" y1="10" x2="30" y2="75"/>
+                        <line x1="25" y1="75" x2="315" y2="75"/>
+                    </g>
+                    <!-- X-ray flux curve with pronounced double Gaussians (shifted right by 30px) -->
+                    <path id="fluxCurve" d="M30,75 C50,74 65,72 75,68 C85,60 95,45 105,35 C115,25 125,28 135,40 C145,52 155,60 165,62 C175,58 185,50 195,38 C205,26 215,18 225,15 C235,18 245,28 255,42 C265,56 275,68 285,72 C295,74 310,75 330,75" 
+                          stroke="url(#signalGradient)" stroke-width="3" fill="none"/>
+                    <!-- Moving indicator -->
+                    <circle id="indicator" r="4" fill="#fff" opacity="0.9">
+                        <animateMotion dur="6s" repeatCount="indefinite">
+                            <mpath href="#fluxCurve"/>
+                        </animateMotion>
+                    </circle>
+                    <!-- Axis labels -->
+                    <text x="170" y="95" text-anchor="middle" fill="#94a3b8" font-size="12" font-family="Arial, sans-serif">Time</text>
+                    <text x="15" y="45" text-anchor="middle" fill="#94a3b8" font-size="12" font-family="Arial, sans-serif" transform="rotate(-90, 15, 45)">X-Ray Flux</text>
+                </svg>
+            </div>
+            <div class="demo-caption">
+                ALEXIS identifies which flaring regions (white pulses) contribute to the X-ray flux curve. What previously was thought to be a single flare is revealed to be multiple overlapping events.
+            </div>
         </div>
 
-        <h2>Implementation Examples</h2>
-        
-        <h3>Memory-Efficient FITS Processing</h3>
-        <div class="code-block">
-import numpy as np
-from astropy.io import fits
-import mmap
-
-def process_fits_memory_mapped(filename):
-    """
-    Memory-efficient FITS processing using memory mapping
-    to handle >1GB files on HPC nodes with limited RAM
-    """
-    with fits.open(filename, memmap=True, mode='readonly') as hdul:
-        # Access data without loading into memory
-        data = hdul[1].data  # Memory-mapped array
-        
-        # Process in chunks to maintain <4GB memory footprint
-        chunk_size = 1024
-        results = []
-        
-        for i in range(0, data.shape[0], chunk_size):
-            chunk = data[i:i+chunk_size]
-            processed_chunk = apply_calibration(chunk)
-            results.append(extract_features(processed_chunk))
-            
-        return np.concatenate(results)
-        </div>
-
-        <h3>Convex Optimization for Flare Detection</h3>
-        <div class="code-block">
-import cvxpy as cp
-import numpy as np
-
-def solve_flare_detection(observations, basis_functions, lambda_reg=0.01):
-    """
-    Convex optimization formulation for robust flare localization
-    """
-    n_regions = basis_functions.shape[1]
-    n_wavelengths = observations.shape[0]
-    
-    # Decision variables (weights for each solar region)
-    weights = cp.Variable(n_regions, nonneg=True)
-    
-    # Reconstruction constraint
-    reconstruction = basis_functions @ weights
-    
-    # Objective: minimize reconstruction error + sparsity penalty
-    objective = cp.Minimize(
-        cp.sum_squares(observations - reconstruction) + 
-        lambda_reg * cp.norm(weights, 1)
-    )
-    
-    # Physical constraints
-    constraints = [
-        cp.sum(weights) <= 1.0,  # Normalized weights
-        weights >= 0             # Non-negativity for physical interpretation
-    ]
-    
-    # Solve using interior-point method (guaranteed global optimum)
-    problem = cp.Problem(objective, constraints)
-    problem.solve(solver=cp.MOSEK, verbose=False)
-    
-    return weights.value, problem.value
-        </div>
-
-        <h2>Future Enhancements</h2>
         <p>
-            Ongoing development focuses on:
+            The elegance of ALEXIS lies in its mathematical foundation: LASSO regression. Unlike complex 
+            machine learning models that operate as black boxes, LASSO provides transparent coefficients 
+            that directly correspond to the contribution of each solar region. This simplicity becomes the 
+            source of robustness. When there are fewer moving parts to fail, the results are more reliable, 
+            easier to validate, and can be understood and reproduced by the broader scientific community.
         </p>
-        <ul>
-            <li>Real-time processing capabilities for space weather prediction</li>
-            <li>Integration with machine learning models for enhanced pattern recognition</li>
-            <li>Containerization for improved portability across HPC systems</li>
-        </ul>
+
+        <h2>Scaling to Supercomputers</h2>
+        <p>
+            After proving the concept locally with 1,057 test flares, we scaled ALEXIS to tackle the full 
+            problem: every C-class flare and above from May 2010 to March 2020. This meant processing 
+            nearly 12 million solar images across 8,279 flare events.
+        </p>
+        
+        <p>
+            The scale required Argonne National Laboratory's supercomputers: Polaris and Theta. Over four 
+            months, we downloaded 97 terabytes of imagery and consumed nearly 400,000 CPU hours of processing 
+            time. The computational challenge revealed interesting patterns. While most images process quickly, 
+            about a quarter exhibit exponential scaling when solar structures become complex.
+        </p>
+
+        <h2>What We Discovered</h2>
+        <p>
+            The results were striking. ALEXIS detected 93.5% of flares in existing catalogs while maintaining 
+            low false positive rates. But more importantly, we found 357 flares that had never been reported 
+            before, representing a 29-34% expansion of the known catalog.
+        </p>
+        
+        <p>
+            These weren't just random discoveries. ALEXIS excels at detecting subtle, multi-region events 
+            that traditional methods miss: sympathetic flares triggered by distant explosions, synchronous 
+            events in different active regions, and the faint precursors and afterglows that bookend major 
+            flares. Each discovery represents a piece of solar physics that was hiding in plain sight.
+        </p>
+
+        <h3>The 131 Angstrom Advantage</h3>
+        <p>
+            One surprising finding was the dominance of the 131Å wavelength, selected in 73% of successful 
+            fits. This wavelength captures emission from 10-million-degree plasma in active region loops,
+            exactly the structures heated by flare energy. This preference validates both our method and 
+            our understanding of flare physics.
+        </p>
+
+        <h2>Beyond the Numbers</h2>
+        <p>
+            ALEXIS represents more than computational achievement. It reveals systematic problems with 
+            fundamental datasets used for decades of research. When we compared our results against 
+            traditional catalogs, substantial portions needed correction. This finding suggests that 
+            revisiting established datasets with modern computational approaches can yield significant 
+            scientific dividends.
+        </p>
+        
+        <p>
+            The implications extend beyond solar physics. Machine learning approaches to flare prediction 
+            have stagnated, possibly because they've reached the limits of what's achievable with incomplete 
+            training data. ALEXIS's improved catalog, with precise spatial information and expanded event 
+            count, provides the foundation for next-generation predictive models.
+        </p>
+
+        <h2>Operational Potential</h2>
+        <p>
+            While ALEXIS currently operates in research mode, the pipeline's design enables near real-time 
+            implementation. With appropriate computational resources and data streaming infrastructure, 
+            space weather prediction centers could deploy ALEXIS operationally, providing more accurate 
+            and timely flare detection capabilities.
+        </p>
+
+        <h2>Looking Ahead</h2>
+        <p>
+            The success opens several exciting possibilities. Our immediate goal is processing the complete 
+            Solar Dynamics Observatory dataset, which contains 14 petabytes spanning over a decade of solar activity. This 
+            comprehensive analysis could nearly double the known flare catalog.
+        </p>
+        
+        <p>
+            Beyond catalog expansion, ALEXIS provides a foundation for understanding the precise spatial 
+            and temporal evolution of flare events. This knowledge could revolutionize our ability to 
+            predict when and where dangerous solar activity might occur, potentially saving lives and 
+            protecting trillions of dollars in infrastructure.
+        </p>
+        
+        <p>
+            Perhaps most importantly, ALEXIS demonstrates the value of applying modern computational 
+            approaches to fundamental astrophysics problems. As our computational capabilities continue 
+            expanding, there may be profound insights hiding in datasets we thought we already understood.
+        </p>
 
         <a href="../index.html#projects" class="back-link">
             <i class="fas fa-arrow-left"></i> Back to Projects
