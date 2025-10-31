@@ -36,7 +36,7 @@ As an astrophysicist transitioning between academia and industry, I needed a pla
 ## Technical Highlights
 
 ### Research Infrastructure
-- **ALEXIS Database**: Production-grade system with 12M+ observations and 8000+ cataloged C-class solar flares
+- **ALEXIS Database**: Production-grade system using 12M+ observations and 8000+ cataloged C-class solar flares
 - **High-Performance Queries**: SQLite backend with millisecond response times and pandas integration
 - **Quality Assurance**: Comprehensive validation pipeline ensuring data integrity
 
