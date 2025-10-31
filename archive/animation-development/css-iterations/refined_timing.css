@@ -1,0 +1,73 @@
+
+/* Region-specific animations with multi-region first peak */
+.region-1 { 
+    top: 30%; left: 20%; 
+    animation: flare-region-1-early 6s ease-in-out infinite;
+}
+
+.region-2 { 
+    top: 60%; right: 25%; 
+    animation: flare-region-2-single 6s ease-in-out infinite;
+}
+
+.region-3 { 
+    bottom: 35%; left: 40%; 
+    animation: flare-region-3-late 6s ease-in-out infinite;
+}
+
+/* Region 1 - Early starter in first peak */
+@keyframes flare-region-1-early {
+    0%, 18.5% {
+        transform: scale(0.8);
+        opacity: 0.3;
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.4);
+    }
+    25.2% {
+        transform: scale(2.2);
+        opacity: 1;
+        box-shadow: 0 0 25px rgba(255, 255, 255, 1);
+    }
+    30.2%, 100% {
+        transform: scale(0.8);
+        opacity: 0.3;
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.4);
+    }
+}
+
+/* Region 3 - Late starter in first peak, overlaps with Region 1 */
+@keyframes flare-region-3-late {
+    0%, 23.5% {
+        transform: scale(0.8);
+        opacity: 0.3;
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.4);
+    }
+    30.2% {
+        transform: scale(2.0);
+        opacity: 0.9;
+        box-shadow: 0 0 22px rgba(255, 255, 255, 0.95);
+    }
+    35.2%, 100% {
+        transform: scale(0.8);
+        opacity: 0.3;
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.4);
+    }
+}
+
+/* Region 2 - Single dominant second peak */
+@keyframes flare-region-2-single {
+    0%, 61.7% {
+        transform: scale(0.8);
+        opacity: 0.3;
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.4);
+    }
+    66.7% {
+        transform: scale(2.8);
+        opacity: 1;
+        box-shadow: 0 0 35px rgba(255, 255, 255, 1);
+    }
+    75.0%, 100% {
+        transform: scale(0.8);
+        opacity: 0.3;
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.4);
+    }
+}

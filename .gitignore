@@ -22,3 +22,14 @@ django-migration-plan.md
 ALEXIS_argonne_database_docs/
 
 papers/
+
+# Development artifacts (keep organized in archive/)
+/analyze_*.py
+/phase*.py
+/*timing*.css
+/*breathing*.css
+/*transitions*.css
+/*blended*.css
+/*.png
+/dev-tools/
+/temp/
