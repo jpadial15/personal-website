@@ -51,13 +51,7 @@ As an astrophysicist transitioning between academia and industry, I needed a pla
 - **SEO**: Comprehensive meta tags, structured data, and multi-language targeting
 - **Hosting**: GitHub Pages with custom domain support
 
-## Local Development
 
-Run locally with Python's built-in server:
-```bash
-python3 -m http.server 8000
-```
-Then visit `http://localhost:8000`
 
 ## Recent Updates
 
